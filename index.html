@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Empleados | SAS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #2d3436;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .sena-logo {
+            font-weight: bold;
+            color: #39a900;
+            margin-bottom: 25px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        label { font-size: 0.9rem; margin-bottom: 5px; color: #636e72; font-weight: 600; }
+        input {
+            padding: 10px;
+            border: 1px solid #dfe6e9;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        input:focus { border-color: #39a900; box-shadow: 0 0 0 2px rgba(57, 169, 0, 0.1); }
+        .btn-primary {
+            grid-column: 1 / -1;
+            background: #39a900;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .btn-primary:hover { background: #2e8b00; transform: translateY(-2px); }
+        .btn-danger {
+            background: #ff7675;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th { background: #2c3e50; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #f1f2f6; }
+        tr:hover { background: #f8f9fa; }
+        .empty-state { padding: 40px; color: #b2bec3; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="favicon.png" alt="Logo Soluciones Empresariales" style="width: 80px; margin-bottom: 10px;">
+        <h1>Soluciones Empresariales S.A.S.</h1>
+        <p class="sena-logo">Gestión de Empleados | Sistema Profesional</p>
+        
+        <!-- Formulario de Registro (Solo 1 ventana/interacción) -->
+        <div class="form-grid">
+            <div class="input-group">
+                <label>Identificación</label>
+                <input type="text" id="id" placeholder="Ej: 102030">
+            </div>
+            <div class="input-group">
+                <label>Nombre Completo</label>
+                <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+            </div>
+            <div class="input-group">
+                <label>Cargo</label>
+                <input type="text" id="cargo" placeholder="Ej: Gerente">
+            </div>
+            <div class="input-group">
+                <label>Salario</label>
+                <input type="number" id="salario" placeholder="Ej: 2500000">
+            </div>
+            <div class="input-group">
+                <label>Área</label>
+                <input type="text" id="area" placeholder="Ej: Ventas">
+            </div>
+            <button class="btn-primary" onclick="registrarEmpleadoDesdeForm()">Registrar Empleado</button>
+        </div>
+
+        <div id="contenedor-tabla">
+            <!-- La tabla se generará dinámicamente -->
+        </div>
+
+        <button class="btn-danger" onclick="eliminarDatos()">Borrar Toda la Base de Datos</button>
+    </div>
+
+    <!-- Vinculación del script -->
+    <script src="taller_empleados.js"></script>
+</body>
+</html>
