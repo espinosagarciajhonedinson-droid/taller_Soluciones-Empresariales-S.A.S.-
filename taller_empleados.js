@@ -188,6 +188,7 @@ function eliminarDatos() {
     if (confirm("¿Desea borrar TODOS los empleados guardados?")) {
         empleados = []; // Vaciamos el arreglo
         localStorage.removeItem("db_sistema_sena"); // Borramos del almacenamiento
+        renderizarTabla(); // REQUISITO SENIOR: Actualizar la vista inmediatamente
         alert("Base de datos reiniciada.");
     }
 }
